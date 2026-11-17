@@ -191,6 +191,7 @@ $('form-salvar').addEventListener('submit', async (e) => {
 });
 
 $('abrir-pasta').addEventListener('click', () => window.api.abrirPasta());
+window.api.versao().then((v) => ($('versao').textContent = `v${v}`));
 
 atualizar();
 setInterval(atualizar, 2500);

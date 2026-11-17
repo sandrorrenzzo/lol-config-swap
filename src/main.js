@@ -196,6 +196,7 @@ ipcMain.handle('aplicar', acao(aplicarPerfil));
 ipcMain.handle('restaurar', acao(restaurar));
 ipcMain.handle('excluir', acao(excluirPerfil));
 ipcMain.handle('abrir-pasta', () => shell.openPath(pastaDados));
+ipcMain.handle('versao', () => app.getVersion());
 
 function criarJanela() {
   const janela = new BrowserWindow({

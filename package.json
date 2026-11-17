@@ -1,7 +1,7 @@
 {
   "name": "lol-config-swap",
   "productName": "LoL Config Swap",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Troca as configurações do League of Legends entre contas e restaura as originais depois",
   "main": "src/main.js",
   "private": true,

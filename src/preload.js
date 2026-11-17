@@ -7,4 +7,5 @@ contextBridge.exposeInMainWorld('api', {
   restaurar: () => ipcRenderer.invoke('restaurar'),
   excluir: (nome) => ipcRenderer.invoke('excluir', nome),
   abrirPasta: () => ipcRenderer.invoke('abrir-pasta'),
+  versao: () => ipcRenderer.invoke('versao'),
 });
