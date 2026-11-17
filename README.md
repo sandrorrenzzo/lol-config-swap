@@ -8,16 +8,9 @@ Funciona pela API local do client (LCU). Não toca no processo do jogo.
 
 ## Download
 
-Na página de [Releases](../../releases/latest), baixe uma das versões. Nenhuma precisa de instalação.
+Na página de [Releases](../../releases/latest), baixe o `LolConfigSwap-<versão>.exe` (~100 MB). Não precisa instalar nada.
 
-| Arquivo | O que é | Tamanho |
-| --- | --- | --- |
-| `LolConfigSwap-2.0.0.exe` | App com interface gráfica (recomendado) | ~100 MB |
-| `LolConfigSwap-console.exe` | Versão de console, mais leve | ~12 MB |
-
-As duas usam os mesmos perfis e backups. Dá para salvar em uma e restaurar na outra.
-
-Os `.exe` não são assinados, então o Windows SmartScreen pode avisar na primeira execução: clique em **Mais informações → Executar assim mesmo**.
+O `.exe` não é assinado, então o Windows SmartScreen pode avisar na primeira execução: clique em **Mais informações → Executar assim mesmo**.
 
 ## Uso
 
@@ -27,18 +20,6 @@ Os `.exe` não são assinados, então o Windows SmartScreen pode avisar na prime
 4. Depois da partida, clique em **Restaurar**. As configs originais do amigo voltam.
 
 O app percebe sozinho quando você abre o client, troca de conta ou entra em partida.
-
-### Versão de console
-
-Dê dois cliques no `.exe` para abrir o menu (opções 2, 3 e 4 equivalem a Salvar, Aplicar e Restaurar). Os comandos também funcionam como argumentos, útil para atalhos ou scripts:
-
-```bash
-LolConfigSwap salvar eu
-LolConfigSwap aplicar eu
-LolConfigSwap restaurar
-LolConfigSwap status
-LolConfigSwap perfis
-```
 
 ## O que é trocado
 
@@ -51,19 +32,20 @@ LolConfigSwap perfis
 - O backup fica em `%LOCALAPPDATA%\LolConfigSwap\backups\<puuid>.json` e **nunca é sobrescrito**: aplicar duas vezes mantém o original.
 - Depois de restaurar, o backup vai para `backups\restaurados\`.
 - Aplicar e restaurar ficam bloqueados com partida em andamento.
+- Perfis e backups criados pela v1 (console) continuam funcionando.
 - Se o client fechar no meio, basta logar de novo na conta e restaurar.
 - Se o LoL estiver fora de `C:\Riot Games\League of Legends` e o client não for encontrado, defina a variável `LOL_PATH`.
 
 ## Build
 
-App (Electron), em `app/`. Requer Node.js:
+Requer Node.js. Para rodar em modo de desenvolvimento:
 
 ```bash
-cd app && npm install && npm run dist
+npm install && npm start
 ```
 
-Console (.NET 10), na raiz:
+Para gerar o `.exe` portátil em `dist/`:
 
 ```bash
-dotnet publish -c Release -o publish
+npm run dist
 ```
