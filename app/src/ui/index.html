@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'" />
+    <title>LoL Config Swap</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <header class="topo">
+        <span class="marca">LoL Config Swap</span>
+        <span class="versao">v2.0.0</span>
+      </header>
+
+      <!-- Conta logada / estado do client -->
+      <section id="conta" class="cartao conta" aria-live="polite">
+        <div class="procurando">
+          <span class="pulso" aria-hidden="true"></span>
+          Procurando o client do LoL…
+        </div>
+      </section>
+
+      <!-- Aviso de perfil aplicado / partida -->
+      <section id="aviso" hidden></section>
+
+      <section class="bloco">
+        <h2>Perfis</h2>
+        <ul id="perfis" class="perfis"></ul>
+      </section>
+
+      <section class="bloco">
+        <h2>Salvar esta conta como perfil</h2>
+        <p class="ajuda">Faça isso na <strong>sua</strong> conta. Depois, aplique o perfil na conta do amigo.</p>
+        <form id="form-salvar" class="salvar" autocomplete="off">
+          <input id="nome" type="text" maxlength="40" placeholder="Nome do perfil, ex.: eu" aria-label="Nome do perfil" />
+          <button id="btn-salvar" type="submit" class="btn primario">Salvar</button>
+        </form>
+      </section>
+
+      <footer class="rodape">
+        <button id="abrir-pasta" class="link" type="button">Abrir pasta de perfis e backups</button>
+      </footer>
+    </main>
+
+    <div id="toast" class="toast" role="status" hidden></div>
+    <script src="app.js"></script>
+  </body>
+</html>

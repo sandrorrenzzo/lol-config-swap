@@ -6,6 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Version>1.0.0</Version>
+    <!-- app/ é a versão Electron; não faz parte do console. -->
+    <DefaultItemExcludes>$(DefaultItemExcludes);app/**;docs/**</DefaultItemExcludes>
   </PropertyGroup>
 
   <!-- Release: um único .exe que roda sem o .NET instalado. -->

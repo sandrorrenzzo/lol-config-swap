@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="ouro" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0d08a"/>
+      <stop offset="1" stop-color="#b8893e"/>
+    </linearGradient>
+    <radialGradient id="fundo" cx="0.5" cy="0.35" r="0.75">
+      <stop offset="0" stop-color="#1c2a38"/>
+      <stop offset="1" stop-color="#0b1016"/>
+    </radialGradient>
+  </defs>
+  <rect x="8" y="8" width="240" height="240" rx="56" fill="url(#fundo)"/>
+  <rect x="8" y="8" width="240" height="240" rx="56" fill="none" stroke="url(#ouro)" stroke-width="8"/>
+  <!-- Seta superior: esquerda para direita -->
+  <path d="M64 100 H172" stroke="#d9b166" stroke-width="20" stroke-linecap="round" fill="none"/>
+  <path d="M150 70 L192 100 L150 130 Z" fill="url(#ouro)"/>
+  <!-- Seta inferior: direita para esquerda -->
+  <path d="M192 156 H84" stroke="#3fb6d8" stroke-width="20" stroke-linecap="round" fill="none"/>
+  <path d="M106 126 L64 156 L106 186 Z" fill="#3fb6d8"/>
+</svg>

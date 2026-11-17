@@ -1,0 +1,31 @@
+{
+  "name": "lol-config-swap",
+  "productName": "LoL Config Swap",
+  "version": "2.0.0",
+  "description": "Troca as configurações do League of Legends entre contas e restaura as originais depois",
+  "main": "src/main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "44.10.1",
+    "electron-builder": "26.18.1"
+  },
+  "build": {
+    "appId": "com.lolconfigswap.app",
+    "productName": "LoL Config Swap",
+    "files": ["src/**/*", "package.json"],
+    "electronLanguages": ["pt-BR", "en-US"],
+    "compression": "maximum",
+    "directories": { "output": "dist" },
+    "win": {
+      "target": [{ "target": "portable", "arch": ["x64"] }],
+      "icon": "build/icon.png"
+    },
+    "portable": {
+      "artifactName": "LolConfigSwap-${version}.exe"
+    }
+  }
+}

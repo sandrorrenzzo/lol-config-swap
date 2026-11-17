@@ -1,29 +1,36 @@
 # LoL Config Swap
 
-Console app que leva suas configurações do League of Legends (jogo + client) para a conta de outra pessoa e depois devolve as configs originais dela.
+Leva suas configurações do League of Legends (jogo + client) para a conta de outra pessoa e depois devolve as configs originais dela.
 
 Funciona pela API local do client (LCU). Não toca no processo do jogo.
 
+<img src="docs/tela.png" alt="Tela do LoL Config Swap com um perfil aplicado na conta de um amigo" width="380">
+
 ## Download
 
-Baixe o `LolConfigSwap.exe` na página de [Releases](../../releases/latest). Não precisa instalar nada.
+Na página de [Releases](../../releases/latest), baixe uma das versões. Nenhuma precisa de instalação.
 
-O `.exe` não é assinado, então o Windows SmartScreen pode avisar na primeira execução: clique em **Mais informações → Executar assim mesmo**.
+| Arquivo | O que é | Tamanho |
+| --- | --- | --- |
+| `LolConfigSwap-2.0.0.exe` | App com interface gráfica (recomendado) | ~100 MB |
+| `LolConfigSwap-console.exe` | Versão de console, mais leve | ~12 MB |
+
+As duas usam os mesmos perfis e backups. Dá para salvar em uma e restaurar na outra.
+
+Os `.exe` não são assinados, então o Windows SmartScreen pode avisar na primeira execução: clique em **Mais informações → Executar assim mesmo**.
 
 ## Uso
 
-Dê dois cliques no `.exe` para abrir o menu:
-
-1. Logue na **sua** conta e escolha **2) Salvar**. Dê um nome ao perfil, ex.: `eu`. Só precisa fazer isso uma vez, ou quando mudar suas configs.
-2. Logue na conta do amigo, escolha **3) Aplicar** e informe o mesmo nome. Antes, o app salva um backup das configs dele.
+1. Logue na **sua** conta, digite um nome (ex.: `eu`) e clique em **Salvar**. Só precisa fazer isso uma vez, ou quando mudar suas configs.
+2. Logue na conta do amigo e clique em **Aplicar** no seu perfil. Antes, o app salva um backup das configs dele.
 3. Jogue.
-4. Com o client fora de partida, escolha **4) Restaurar**. As configs originais do amigo voltam.
+4. Depois da partida, clique em **Restaurar**. As configs originais do amigo voltam.
 
-A opção **1) Status** mostra a conta logada e se ela está com um perfil aplicado.
+O app percebe sozinho quando você abre o client, troca de conta ou entra em partida.
 
-### Uso pelo terminal (opcional)
+### Versão de console
 
-Os mesmos comandos funcionam como argumentos, útil para criar atalhos ou scripts:
+Dê dois cliques no `.exe` para abrir o menu (opções 2, 3 e 4 equivalem a Salvar, Aplicar e Restaurar). Os comandos também funcionam como argumentos, útil para atalhos ou scripts:
 
 ```bash
 LolConfigSwap salvar eu
@@ -43,13 +50,19 @@ LolConfigSwap perfis
 
 - O backup fica em `%LOCALAPPDATA%\LolConfigSwap\backups\<puuid>.json` e **nunca é sobrescrito**: aplicar duas vezes mantém o original.
 - Depois de restaurar, o backup vai para `backups\restaurados\`.
-- Aplicar e restaurar recusam rodar com partida em andamento.
-- Se o client fechar no meio, basta logar de novo na conta e escolher **Restaurar**.
+- Aplicar e restaurar ficam bloqueados com partida em andamento.
+- Se o client fechar no meio, basta logar de novo na conta e restaurar.
 - Se o LoL estiver fora de `C:\Riot Games\League of Legends` e o client não for encontrado, defina a variável `LOL_PATH`.
 
 ## Build
 
-Requer o SDK do .NET 10. Gera um único `.exe` autocontido em `publish/`:
+App (Electron), em `app/`. Requer Node.js:
+
+```bash
+cd app && npm install && npm run dist
+```
+
+Console (.NET 10), na raiz:
 
 ```bash
 dotnet publish -c Release -o publish
