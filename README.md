@@ -12,14 +12,26 @@ O `.exe` não é assinado, então o Windows SmartScreen pode avisar na primeira 
 
 ## Uso
 
-Dê dois cliques no `.exe` para abrir o menu, ou use pelo terminal:
+Dê dois cliques no `.exe` para abrir o menu:
 
-1. Logue na **sua** conta e rode `LolConfigSwap salvar eu` (uma vez só, ou quando mudar suas configs).
-2. Logue na conta do amigo e rode `LolConfigSwap aplicar eu`. Antes, o app salva um backup das configs dele.
+1. Logue na **sua** conta e escolha **2) Salvar**. Dê um nome ao perfil, ex.: `eu`. Só precisa fazer isso uma vez, ou quando mudar suas configs.
+2. Logue na conta do amigo, escolha **3) Aplicar** e informe o mesmo nome. Antes, o app salva um backup das configs dele.
 3. Jogue.
-4. Com o client fora de partida, rode `LolConfigSwap restaurar`. As configs originais do amigo voltam.
+4. Com o client fora de partida, escolha **4) Restaurar**. As configs originais do amigo voltam.
 
-Sem argumentos, abre um menu. Outros comandos: `status`, `perfis`.
+A opção **1) Status** mostra a conta logada e se ela está com um perfil aplicado.
+
+### Uso pelo terminal (opcional)
+
+Os mesmos comandos funcionam como argumentos, útil para criar atalhos ou scripts:
+
+```bash
+LolConfigSwap salvar eu
+LolConfigSwap aplicar eu
+LolConfigSwap restaurar
+LolConfigSwap status
+LolConfigSwap perfis
+```
 
 ## O que é trocado
 
@@ -31,8 +43,8 @@ Sem argumentos, abre um menu. Outros comandos: `status`, `perfis`.
 
 - O backup fica em `%LOCALAPPDATA%\LolConfigSwap\backups\<puuid>.json` e **nunca é sobrescrito**: aplicar duas vezes mantém o original.
 - Depois de restaurar, o backup vai para `backups\restaurados\`.
-- `aplicar` e `restaurar` recusam rodar com partida em andamento.
-- Se o client fechar no meio, basta logar de novo na conta e rodar `restaurar`.
+- Aplicar e restaurar recusam rodar com partida em andamento.
+- Se o client fechar no meio, basta logar de novo na conta e escolher **Restaurar**.
 - Se o LoL estiver fora de `C:\Riot Games\League of Legends` e o client não for encontrado, defina a variável `LOL_PATH`.
 
 ## Build
